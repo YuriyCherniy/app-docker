@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . ./
 
-CMD [".manage.py", "runserver"]
+CMD ["python3", "app-docker/manage.py", "runserver", "0.0.0.0:8000"]
