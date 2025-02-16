@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . ./
 
-CMD [".manage.py", "runserver"]
+CMD ["python", "./app/manage.py", "runserver", "0000:8000"]
