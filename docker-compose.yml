@@ -1,5 +1,6 @@
 services:
   app:
-    build: .
+    build: ./application
     ports:
       - '80:8000'
+  
