@@ -8,5 +8,5 @@ RUN pip install -r ./requirements.txt
 
 COPY . ./
 
-CMD ["python3", "app-docker/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "django_app.wsgi:application", "--worker 3", "--bind", "0.0.0.0:8000"]
 
