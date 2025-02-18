@@ -1,6 +1,7 @@
 services:
   app:
     build: ./application
+  nginx:
+    build: ./nginx
     ports:
-      - '80:8000'
-  
+      - '80:80'
