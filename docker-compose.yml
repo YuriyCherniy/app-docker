@@ -5,3 +5,16 @@ services:
     build: ./nginx
     ports:
       - '80:80'
+      - '443:443'
+    volumes:
+      - type: bind
+        source: /var/log/nginx
+        target: /var/log/nginx
+      - type: bind
+        source: /etc/letsencrypt
+        target: /etc/letsencrypt
+      - type: bind
+        source: /var/www/certbot
+        target: /var/www/certbot
+  db:
+    image: postgrs:17.3
