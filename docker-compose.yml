@@ -1,12 +1,20 @@
 services:
   app:
     build: ./application
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - static_data:/app/static
   nginx:
     build: ./nginx
     ports:
       - '80:80'
       - '443:443'
+    depends_on:
+      - app
     volumes:
+      - static_data:/app/static
       - type: bind
         source: /var/log/nginx
         target: /var/log/nginx
@@ -17,4 +25,11 @@ services:
         source: /var/www/certbot
         target: /var/www/certbot
   db:
-    image: postgrs:17.3
+    image: postgres:17.3
+    environment:
+      POSTGRES_PASSWORD: '009'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/    
+volumes:
+  static_data:
+  postgres_data:

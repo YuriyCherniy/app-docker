@@ -8,5 +8,6 @@ RUN pip install -r ./requirements.txt
 
 COPY . ./
 
-CMD ["gunicorn", "django_app.wsgi:application", "--worker 3", "--bind", "0.0.0.0:8000"]
+RUN chmod 755 entrypoint.sh
 
+ENTRYPOINT [ "/app/entrypoint.sh" ]
