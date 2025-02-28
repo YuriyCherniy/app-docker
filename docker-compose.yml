@@ -22,8 +22,8 @@ services:
         source: /etc/letsencrypt
         target: /etc/letsencrypt
       - type: bind
-        source: /var/www/certbot
-        target: /var/www/certbot
+        source: /var/www/certbot/.well-known/acme-challenge/
+        target: /var/www/certbot/.well-known/acme-challenge/
   db:
     image: postgres:17.3
     environment:
