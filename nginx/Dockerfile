@@ -4,4 +4,4 @@ EXPOSE 80
 
 EXPOSE 443
 
-COPY docker.linkys.ru.conf /etc/nginx/conf.d
+COPY there-is-a-bug.ru.conf /etc/nginx/conf.d
